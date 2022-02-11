@@ -6,8 +6,11 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from Boucle import Boucle
 from Condition import Condition
 from EntreeSortie import EntreeSortie
+from Fonction import Fonction
+from Instruction import Instruction
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 global scene 
@@ -51,9 +54,14 @@ class Ui_MainWindow(object):
         self.code_btn.setObjectName("code_btn")
         MainWindow.setCentralWidget(self.centralwidget)
         
+        self.start_func_btn.clicked.connect(lambda: self.drawFonction(self.start_func_btn))
+        self.fin_func_btn.clicked.connect(lambda: self.drawFonction(self.fin_func_btn))
+        self.start_boucle_btn.clicked.connect(lambda: self.drawBoucle(self.start_boucle_btn))
+        self.fin_boucle_btn.clicked.connect(lambda: self.drawBoucle(self.fin_boucle_btn))
+        self.input_btn.clicked.connect(lambda: self.drawInOut(self.input_btn))
+        self.output_btn.clicked.connect(lambda: self.drawInOut(self.output_btn))
+        self.instruction_btn.clicked.connect(self.drawInstruction)
         self.condition_btn.clicked.connect(self.drawCondition)
-        self.input_btn.clicked.connect(self.drawInOut)
-        self.output_btn.clicked.connect(self.drawInOut)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -72,19 +80,74 @@ class Ui_MainWindow(object):
         self.code_btn.setText(_translate("MainWindow", "Générer le code"))
 
     def drawCondition(self):
-        newCondition = Condition()
-        drawnCond = newCondition.draw()
+        texte = "Une condition"
+        newCondition = Condition(texte)
+        drawnCond, textCond = newCondition.draw()
         scene.addItem(drawnCond)
+        scene.addItem(textCond)
         self.graphicsView.setScene(scene)
         self.graphicsView.show()
-
-    def drawInOut(self):
-        newEntry = EntreeSortie()
-        drawnIO = newEntry.draw()
-        scene.addItem(drawnIO)
+    
+    def drawFonction(self,b):
+        
+        name = b.objectName()
+        
+        if name == "start_func_btn":
+            texte = "Début de la fonction"
+            
+        if name == "fin_func_btn":
+            texte = "Fin de la fonction"
+                    
+        newFonction = Fonction(texte)
+        drawFonc,textFonc = newFonction.draw()
+        scene.addItem(drawFonc)
+        scene.addItem(textFonc)
         self.graphicsView.setScene(scene)
         self.graphicsView.show()
         
+    def drawBoucle(self,b):
+        
+        name = b.objectName()
+        
+        if name == "start_boucle_btn":
+            texte = "Début de la boucle"
+            
+        if name == "fin_boucle_btn":
+            texte = "Fin de la boucle"
+                    
+        newBoucle = Boucle(texte)
+        drawBoucle,textBoucle = newBoucle.draw()
+        scene.addItem(drawBoucle)
+        scene.addItem(textBoucle)
+        self.graphicsView.setScene(scene)
+        self.graphicsView.show()
+
+    def drawInOut(self,b):
+        
+        name = b.objectName()
+        
+        if name == "input_btn":
+            texte = "Une entrée"
+            
+        if name == "output_btn":
+            texte = "Une sortie"
+        
+        
+        newEntry = EntreeSortie(texte)
+        drawnIO,textIO = newEntry.draw()
+        scene.addItem(drawnIO)
+        scene.addItem(textIO)
+        self.graphicsView.setScene(scene)
+        self.graphicsView.show()
+    
+    def drawInstruction(self):
+        texte = "Une instruction"
+        newInst = Instruction(texte)
+        drawInst,textInst = newInst.draw()
+        scene.addItem(drawInst)
+        scene.addItem(textInst)
+        self.graphicsView.setScene(scene)
+        self.graphicsView.show()
 
 if __name__ == "__main__":
     import sys

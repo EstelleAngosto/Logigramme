@@ -7,14 +7,15 @@ Created on Tue Jan 25 10:31:43 2022
 
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QBrush
-from PyQt5.QtWidgets import QGraphicsItem, QGraphicsRectItem
+from PyQt5.QtWidgets import QGraphicsItem, QGraphicsEllipseItem, QGraphicsTextItem
 
-class Fonction():
-    def __init__(self):
+class Fonction:
+    def __init__(self,texte):
         self.x = 0
         self.y = 0
-        self.width = 20
-        self.height = 10
+        self.width = 200
+        self.height = 100
+        self.texte = texte
         
     
     def draw(self):
@@ -22,6 +23,17 @@ class Fonction():
         y = self.y
         w = self.width
         h = self.height
+        text = self.texte
+                
+        fonction = QGraphicsEllipseItem(x,y,w,h)
+        fonction.setBrush(QBrush(Qt.blue))
+        fonction.setFlag(QGraphicsItem.ItemIsMovable)
         
-        fonction = QGraphicsRectItem(x,y,w,h)
-        return fonction
+        texte = QGraphicsTextItem(text)
+        dx = w/4
+        dy = h/4
+        texte.setPos(x + dx, y + dy)
+        texte.setDefaultTextColor(Qt.black)
+        texte.setFlag(QGraphicsItem.ItemIsMovable)
+
+        return fonction,texte
