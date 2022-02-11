@@ -6,7 +6,12 @@
 #
 # WARNING! All changes made in this file will be lost!
 
+from Condition import Condition
+from EntreeSortie import EntreeSortie
 from PyQt5 import QtCore, QtGui, QtWidgets
+
+global scene 
+scene = QtWidgets.QGraphicsScene()
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -45,6 +50,10 @@ class Ui_MainWindow(object):
         self.code_btn.setGeometry(QtCore.QRect(600, 740, 101, 28))
         self.code_btn.setObjectName("code_btn")
         MainWindow.setCentralWidget(self.centralwidget)
+        
+        self.condition_btn.clicked.connect(self.drawCondition)
+        self.input_btn.clicked.connect(self.drawInOut)
+        self.output_btn.clicked.connect(self.drawInOut)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -62,6 +71,20 @@ class Ui_MainWindow(object):
         self.fin_boucle_btn.setText(_translate("MainWindow", "Fin boucle"))
         self.code_btn.setText(_translate("MainWindow", "Générer le code"))
 
+    def drawCondition(self):
+        newCondition = Condition()
+        drawnCond = newCondition.draw()
+        scene.addItem(drawnCond)
+        self.graphicsView.setScene(scene)
+        self.graphicsView.show()
+
+    def drawInOut(self):
+        newEntry = EntreeSortie()
+        drawnIO = newEntry.draw()
+        scene.addItem(drawnIO)
+        self.graphicsView.setScene(scene)
+        self.graphicsView.show()
+        
 
 if __name__ == "__main__":
     import sys
@@ -70,5 +93,5 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    sys.exit(app.exec_())
+    sys.exit(app.quit())
 
