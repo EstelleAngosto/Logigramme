@@ -15,7 +15,7 @@ class Fonction:
         self.y = 0
         self.width = 200
         self.height = 100
-        self.texte = texte
+        self.text = texte
         
     
     def draw(self):
@@ -23,7 +23,7 @@ class Fonction:
         y = self.y
         w = self.width
         h = self.height
-        text = self.texte
+        text = self.text
                 
         fonction = QGraphicsEllipseItem(x,y,w,h)
         fonction.setBrush(QBrush(Qt.blue))

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1020</width>
-    <height>819</height>
+    <width>1081</width>
+    <height>868</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>1001</width>
+      <width>1061</width>
       <height>721</height>
      </rect>
     </property>
@@ -28,7 +28,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>740</y>
+      <y>790</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -41,7 +41,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>780</y>
+      <y>830</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -54,7 +54,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>740</y>
+      <y>790</y>
       <width>111</width>
       <height>28</height>
      </rect>
@@ -67,7 +67,7 @@
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>780</y>
+      <y>830</y>
       <width>111</width>
       <height>28</height>
      </rect>
@@ -80,7 +80,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>740</y>
+      <y>790</y>
       <width>141</width>
       <height>28</height>
      </rect>
@@ -93,7 +93,7 @@
     <property name="geometry">
      <rect>
       <x>290</x>
-      <y>780</y>
+      <y>830</y>
       <width>141</width>
       <height>28</height>
      </rect>
@@ -106,7 +106,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>740</y>
+      <y>790</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -119,7 +119,7 @@
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>780</y>
+      <y>830</y>
       <width>93</width>
       <height>28</height>
      </rect>
@@ -132,13 +132,36 @@
     <property name="geometry">
      <rect>
       <x>600</x>
-      <y>740</y>
+      <y>790</y>
       <width>101</width>
       <height>28</height>
      </rect>
     </property>
     <property name="text">
      <string>Générer le code</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="text_lbl">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>750</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Texte à afficher :</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="text_led">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>741</y>
+      <width>581</width>
+      <height>31</height>
+     </rect>
     </property>
    </widget>
   </widget>
